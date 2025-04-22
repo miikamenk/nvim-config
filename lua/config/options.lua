@@ -6,3 +6,8 @@ vim.filetype.add({
 		[".*%.blade%.php"] = "blade",
 	},
 })
+
+-- my_nvim_path/lua/options.lua
+if vim.fn.has("win32") == 1 then -- only windows
+	vim.g.undotree_DiffCommand = vim.fn.stdpath("config") .. "\\bin\\diff.exe"
+end
