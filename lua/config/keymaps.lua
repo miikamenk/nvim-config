@@ -4,11 +4,6 @@
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("t", "jj", "<Esc>")
 
-vim.keymap.set("n", "<leader>dte", function()
-	require("duckytype").Start("english_common")
-end)
-
 vim.keymap.set("n", "<leader>dtr", function()
 	require("duckytype").Start("cpp_keywords")
 end)
-
