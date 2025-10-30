@@ -1,8 +1,3 @@
--- testing blink-cmp
-if true then
-	return {}
-end
-
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
@@ -17,6 +12,8 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+		"rafamadriz/friendly-snippets",
+		"mireq/luasnip-snippets",
 	},
 
 	config = function()
@@ -33,6 +30,10 @@ return {
 			vim.lsp.protocol.make_client_capabilities(),
 			cmp_lsp.default_capabilities()
 		)
+		require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+
+		require("luasnip_snippets.common.snip_utils").setup()
 
 		require("fidget").setup({})
 		require("mason").setup()
@@ -92,6 +93,9 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete(),
+				["<CR>"] = cmp.mapping(function(fallback)
+					fallback()
+				end, { "i", "s" }),
 			}),
 			sources = cmp.config.sources({
 				{ name = "copilot", group_index = 2 },
