@@ -3,7 +3,3 @@
 -- Add any additional keymaps here
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("t", "jj", "<Esc>")
-
-vim.keymap.set("n", "<leader>dtr", function()
-	require("duckytype").Start("cpp_keywords")
-end)

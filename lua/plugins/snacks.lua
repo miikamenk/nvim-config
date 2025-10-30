@@ -3,12 +3,27 @@ return {
 	--- Updated this section to align with approach taken in other LazyVim snacks configs
 	---@diagnostic disable-next-line: unused-local
 	opts = function(_, opts)
-		-- Credit for this section goes to exsesx
-		-- https://github.com/LazyVim/LazyVim/discussions/4232#discussioncomment-11191278
 		local snacks = require("snacks")
-		-- Check whether Copilot is installed
+
+		opts.styles = {
+			snacks_image = {
+				relative = "editor",
+				col = -1,
+			},
+		}
+
+		opts.image = {
+			enabled = true,
+			doc = {
+				-- render image inline only when using "skitty" mode
+				inline = vim.g.neovim_mode == "skitty" and true or false,
+				float = true,
+				max_width = vim.g.neovim_mode == "skitty" and 5 or 60,
+				max_height = vim.g.neovim_mode == "skitty" and 2.5 or 30,
+			},
+		}
+
 		if pcall(require, "copilot") then
-			--- Workaround to keep track of state
 			vim.g.snacks_copilot_enabled = false
 			require("copilot.command").disable()
 			snacks
