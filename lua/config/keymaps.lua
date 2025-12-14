@@ -3,3 +3,6 @@
 -- Add any additional keymaps here
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("t", "jj", "<Esc>")
+
+vim.keymap.set("n", "<leader>twq", "<cmd>write<cr>", { desc = "Write" })
+vim.keymap.set("n", "<leader>twa", "<cmd>noa write<cr>", { desc = "Write (noa)" })
