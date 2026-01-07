@@ -46,7 +46,7 @@ return {
 						end
 					end,
 				})
-				:map("<leader>at")
+				:map("<leader>tc")
 		end
 	end,
 }
