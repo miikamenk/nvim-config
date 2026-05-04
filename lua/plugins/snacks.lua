@@ -22,6 +22,18 @@ return {
 				max_height = vim.g.neovim_mode == "skitty" and 2.5 or 30,
 			},
 		}
+		opts.dashboard = {
+			preset = {
+				header = [[                                                                                                                                                                                              
+███╗   ███╗███████╗███╗   ██╗██╗  ██╗
+████╗ ████║██╔════╝████╗  ██║██║ ██╔╝
+██╔████╔██║█████╗  ██╔██╗ ██║█████╔╝ 
+██║╚██╔╝██║██╔══╝  ██║╚██╗██║██╔═██╗ 
+██║ ╚═╝ ██║███████╗██║ ╚████║██║  ██╗
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝
+      ]],
+			},
+		}
 
 		if pcall(require, "copilot") then
 			vim.g.snacks_copilot_enabled = false
